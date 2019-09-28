@@ -6,6 +6,7 @@ import datetime
 from PIL import Image
 from smartcard.System import readers
 from smartcard.util import toHexString
+from smartcard.Exceptions import NoCardException
 
 # Thailand ID Smartcard
 # tis-620 to utf-8
@@ -114,9 +115,14 @@ class ThaiCard:
     def read_data(self):
         if self.reader == None:
            return None
-
-        self.__connection = self.reader.createConnection()
-        self.__connection.connect()
+        
+        try:
+            self.__connection = self.reader.createConnection()
+            self.__connection.connect()
+        except NoCardException as error:
+            print(f'DEBUG: Error = {error}')
+            return None
+        
         atr = self.__connection.getATR()
         #print(f'DEBUG: ATR = {toHexString(atr)}')
 

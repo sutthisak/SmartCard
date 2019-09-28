@@ -6,4 +6,3 @@ $ conda activate SmartCard
 $ pip install pyscard
 $ pip install Pillow
 $ conda deactivate
-```

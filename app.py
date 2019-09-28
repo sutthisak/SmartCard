@@ -132,51 +132,42 @@ class ThaiCard:
         # CID
         data = self.__get_data(self.CMD_CID, req)
         self.cid = thai2unicode(data[0])
-        #print(f'DEBUG: CID = {self.cid}')
-
+        
         # TH Fullname
         data = self.__get_data(self.CMD_THFULLNAME, req)
         self.name_th = thai2unicode(data[0])
-        #print(f'DEBUG: TH Fullname = {self.name_th}')
-
+        
         # EN Fullname
         data = self.__get_data(self.CMD_ENFULLNAME, req)
         self.name_en = thai2unicode(data[0])
-        #print(f'DEBUG: EN Fullname = {self.name_en}')
-
+        
         # Date of birth
         data = self.__get_data(self.CMD_BIRTH, req)
         data = thai2unicode(data[0])
         self.date_of_birth = datetime.datetime(int(data[:4]), int(data[4:6]), int(data[6:8]))
-        #print(f'DEBUG: Date of birth = {self.date_of_birth:%Y/%m/%d}')
-
+        
         # Gender
         data = self.__get_data(self.CMD_GENDER, req)
         self.gender = thai2unicode(data[0])
-        #print(f'DEBUG: Gender = {self.gender}')
-
+        
         # Card Issuer
         data = self.__get_data(self.CMD_ISSUER, req)
         self.card_issuer = thai2unicode(data[0])
-        #print(f'DEBUG: Card Issuer = {self.card_issuer}')
-
+        
         # Issue Date
         data = self.__get_data(self.CMD_ISSUE, req)
         data = thai2unicode(data[0])
         self.issue_date = datetime.datetime(int(data[:4]), int(data[4:6]), int(data[6:8]))
-        #print(f'DEBUG: Issue Date = {self.issue_date:%Y/%m/%d}')
-
+        
         # Expire Date
         data = self.__get_data(self.CMD_EXPIRE, req)
         data = thai2unicode(data[0])
         self.expire_date = datetime.datetime(int(data[:4]), int(data[4:6]), int(data[6:8]))
-        #print(f'DEBUG: Expire Date = {self.expire_date:%Y/%m/%d}')
-
+        
         # Address
         data = self.__get_data(self.CMD_ADDRESS, req)
         self.address = thai2unicode(data[0])
-        #print(f'DEBUG: Address: {self.address}')
-
+        
         # PHOTO
         photo = list()
         for i in self.CMD_PHOTO:

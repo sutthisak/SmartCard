@@ -181,7 +181,7 @@ class ThaiCard:
         if filename == None:
            filename = self.cid
 
-        with open(f'{filename}.jpg','wb') as f:
+        with open(f'{filename}.jpg', 'wb') as f:
             f.write(self.photo)
 
     def get_data(self):
@@ -199,7 +199,7 @@ class ThaiCard:
                  'ExpireDate':self.expire_date,
                  'Address':self.address
                }
-        self.save_picture(self.name_en.replace(' ','-'))
+        self.save_picture(self.name_en.replace(' ', '-'))
         return data
 
 if __name__ == '__main__':
